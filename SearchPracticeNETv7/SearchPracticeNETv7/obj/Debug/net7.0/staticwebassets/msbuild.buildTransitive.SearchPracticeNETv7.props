@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/SearchPracticeNETv7.props" />
+</Project>

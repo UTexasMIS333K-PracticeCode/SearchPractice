@@ -1,0 +1,83 @@
+﻿@model SearchViewModel
+
+@{
+    ViewData["Title"] = "DetailedSearch";
+}
+
+<h1>Detailed Search</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SearchResults" method="get">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SearchName" type="number " class="control-label"></label>
+                <input asp-for="SearchName" class="form-control" />
+                <span asp-validation-for="SearchName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SearchGPA" class="control-label"></label>
+                <input asp-for="SearchGPA" type="number" step="0.1" class="form-control" />
+                <span asp-validation-for="SearchGPA" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SelectedDate" class="control-label"></label>
+                <input asp-for="SelectedDate" class="form-control" />
+                <span asp-validation-for="SelectedDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="OutOfState" />
+                    @{ //this is the label for the checkbox
+                    }
+                    @Html.DisplayNameFor(model => model.OutOfState)
+                </label>
+            </div>
+            @{ //this will NOT get scaffolded for you
+            }
+            <div class="form-group">
+                <label asp-for="SelectedClass" class="control-label"></label><br />
+                <input type="radio" class="radio" asp-for="SelectedClass" value="@Classification.All" checked="checked" />&nbsp; All<br />
+                <input type="radio" class="radio" asp-for="SelectedClass" value="@Classification.Freshman" />&nbsp; Freshman<br />
+                <input type="radio" class="radio" asp-for="SelectedClass" value="@Classification.Sophomore" />&nbsp; Sophomore<br />
+                <input type="radio" class="radio" asp-for="SelectedClass" value="@Classification.Junior" />&nbsp; Junior<br />
+                <input type="radio" class="radio" asp-for="SelectedClass" value="@Classification.Senior" />&nbsp; Senior<br />
+            </div>
+
+            @{//purely aesthetics to put into a drop down below, can change value to empty string
+
+            }
+            <div class="form-group">
+                <label asp-for="SelectedMajor" class="control-label"></label>
+                <select asp-for="SelectedMajor" asp-items="Html.GetEnumSelectList<Major>()" class="form-control">
+                    <option selected="selected" value="">All Majors</option>
+                </select>
+                <span asp-validation-for="SelectedMajor" class="text-danger"></span>
+            </div>
+
+            @{
+
+            }
+            <div class="form-group">
+                <label asp-for="SelectedMonthID" class="control-label"></label>
+                @{ //populate this drop down using SelectList -- which we need to populate on the HomeController
+                }
+                @Html.DropDownListFor(model => model.SelectedMonthID, (SelectList)ViewBag.AllMonths, new { @class = "form-control" })
+                <span asp-validation-for="SelectedMonthID" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
