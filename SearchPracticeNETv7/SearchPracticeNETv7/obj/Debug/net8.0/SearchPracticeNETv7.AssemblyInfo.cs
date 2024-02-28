@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SearchPracticeNETv7")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4954ac15011543702d5a3e120fd0e08799eab2f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab17a64f45ed9f4546feb870588167dbc6e506c9")]
 [assembly: System.Reflection.AssemblyProductAttribute("SearchPracticeNETv7")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SearchPracticeNETv7")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
